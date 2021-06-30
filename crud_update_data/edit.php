@@ -24,22 +24,22 @@
       </div>
       <div class="form-group">
           <label>Class</label>
-          <select name="sclass">
-              <option value="" selected disabled>Select Class</option>
-              <?php
+          <?php
                 $sql1 = "SELECT * FROM studentclass";
                 $result1 = mysqli_query($conn, $sql1) or die("Query Unsuccessful.");
         if(mysqli_num_rows($result1) > 0) {
-        echo '<select name="sclass">';
+        echo '<select name="sclass">
+        <option value="" selected disabled>Select Class</option>';
         while($row1 = mysqli_fetch_assoc($result1)){
             if($row['sclass'] == $row1['cid']){
                 $select = "selected";
             }else{
                 $select = "";
             }
-            echo "<option {$select} value="{$row1['cid']}">{$row1['cname']}</option>";
+            echo "<option {$select} value='{$row1['cid']}'>{$row1['cname']}</option>";
         }
          echo "</select>";
+    }
           ?>
       </div>
       <div class="form-group">
@@ -48,9 +48,9 @@
       </div>
       <input class="submit" type="submit" value="Update"/>
     </form>
-    <?php } 
-    
-        }
+    <?php 
+        } 
+      }
     ?>
 </div>
 </div>
